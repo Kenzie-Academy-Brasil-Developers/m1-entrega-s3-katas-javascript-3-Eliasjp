@@ -134,10 +134,10 @@ function kata8 (list){
     let kata8List = ""
     if (list < 100){
         for (i = 100; i >= list; i--){
-            if (kata8List == "" && i % 7 == 0 && i % 3 == 0){
+            if (kata8List == "" && i % 7 == 0 || i % 3 == 0 && kata8List == ""){
                 kata8List += i
                 for (ii = i - 1; ii >= list; ii--){
-                    if (ii % 7 == 0 && ii % 3 == 0 && kata8List != ""){
+                    if (ii % 7 == 0 && kata8List != "" || ii % 3 == 0 && kata8List != ""){
                         kata8List += ","
                         kata8List += ii
                     }
@@ -147,7 +147,7 @@ function kata8 (list){
         return kata8List
     }
     if (kata8List == "" && list <= 100){
-        return `Nenhum múltiplos de 7 e 3`
+        return `Nenhum múltiplos de 7 ou 3`
     }
     if (list > 100){
         return `Número maior que 100`
